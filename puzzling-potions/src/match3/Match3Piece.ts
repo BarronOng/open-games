@@ -5,23 +5,31 @@ import { resolveAndKillTweens, registerCustomEase, pauseTweens, resumeTweens } f
 import { app } from '../main';
 
 /** Default piece options */
+/** 默认方块选项 */
 const defaultMatch3PieceOptions = {
     /** Piece name, must match one of the textures available */
+    /** 方块名称，必须匹配可用的纹理之一 */
     name: '',
     /** Attributed piece type in the grid */
+    /** 网格中归属的方块类型 */
     type: 0,
     /** Piece size - width & height - in pixel */
+    /** 方块大小 - 宽度和高度 - 以像素为单位 */
     size: 50,
     /** Set if the piece should be highlighted, like special types */
+    /** 设置方块是否应该高亮显示，如特殊类型 */
     highlight: false,
     /** Enable or disable its interactivity */
+    /** 启用或禁用其交互性 */
     interactive: false,
 };
 
 /** Piece configuration parameters */
+/** 方块配置参数 */
 export type Match3PieceOptions = typeof defaultMatch3PieceOptions;
 
 /** Custom ease curve for y animation of falling pieces */
+/** 下落方块 y 轴动画的自定义缓动曲线 */
 const easeSingleBounce = registerCustomEase(
     'M0,0,C0.14,0,0.27,0.191,0.352,0.33,0.43,0.462,0.53,0.963,0.538,1,0.546,0.985,0.672,0.83,0.778,0.83,0.888,0.83,0.993,0.983,1,1',
 );
@@ -31,6 +39,11 @@ const easeSingleBounce = registerCustomEase(
  * because of simplicity, setting up the pointer listeners and passing them up through callbacks.
  * They also have their own set of animations and they will be locked while playing them, to avoid
  * positioning conflicts.
+ */
+/**
+ * 游戏板中方块的视觉表示。方块是与游戏板交互的点，
+ * 为了简化，设置指针监听器并通过回调传递它们。
+ * 它们还有自己的动画集，在播放时会锁定，以避免位置冲突。
  */
 export class Match3Piece extends Container {
     /** The interactive area of the piece */

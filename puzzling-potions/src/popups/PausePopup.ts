@@ -7,16 +7,22 @@ import gsap from 'gsap';
 import { navigation } from '../utils/navigation';
 
 /** Popup that shows up when gameplay is paused */
+/** 游戏暂停时显示的弹窗 */
 export class PausePopup extends Container {
     /** The dark semi-transparent background covering current screen */
+    /** 覆盖当前界面的深色半透明背景 */
     private bg: Sprite;
     /** Container for the popup UI components */
+    /** 弹窗 UI 组件的容器 */
     private panel: Container;
     /** The popup title label */
+    /** 弹窗标题标签 */
     private title: Label;
     /** Button that closes the popup */
+    /** 关闭弹窗的按钮 */
     private doneButton: LargeButton;
     /** The panel background */
+    /** 面板背景 */
     private panelBase: RoundedBox;
 
     constructor() {

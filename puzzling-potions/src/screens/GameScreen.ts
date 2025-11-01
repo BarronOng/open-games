@@ -24,10 +24,13 @@ import { match3GetConfig, Match3Mode } from '../match3/Match3Config';
 import { userStats } from '../utils/userStats';
 
 /** The screen tha holds the Match3 game */
+/** 包含三消游戏的界面 */
 export class GameScreen extends Container {
     /** Assets bundles required by this screen */
+    /** 此界面所需的资源包 */
     public static assetBundles = ['game', 'common'];
     /** The Math3 game */
+    /** 三消游戏 */
     public readonly match3: Match3;
     /** Animated cauldron */
     public readonly cauldron: Cauldron;

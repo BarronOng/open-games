@@ -5,6 +5,7 @@ import { randomRange } from './random';
 gsap.registerPlugin(CustomEase);
 
 /** Unique identifiers for custom eases */
+/** 自定义缓动的唯一标识符 */
 let customEaseUID = 1;
 
 /**
@@ -12,6 +13,12 @@ let customEaseUID = 1;
  * @param curve The string representing the curve
  * @param name Optional name for the tween, otherwise it will create an unique id
  * @returns The ease function to be used in tweens
+ */
+/**
+ * 注册自定义缓动曲线，这样包装基本上是为了防止在不同文件中覆盖
+ * @param curve 表示曲线的字符串
+ * @param name 补间的可选名称，否则将创建唯一 ID
+ * @returns 在补间中使用的缓动函数
  */
 export function registerCustomEase(curve: string, name?: string) {
     if (!name) name = 'customEase' + customEaseUID++;
@@ -23,6 +30,11 @@ export function registerCustomEase(curve: string, name?: string) {
  * Safely kill tweens without breaking their promises. It seems that in gsap,
  * if you kill a tween, its promises hangs forever, without either resolve or reject
  * @param targets The tween targets that must have related tweens killed
+ */
+/**
+ * 安全地终止补间而不破坏它们的承诺。在 gsap 中，
+ * 如果你终止一个补间，它的承诺会永远挂起，既不解决也不拒绝
+ * @param targets 必须终止相关补间的补间目标
  */
 export async function resolveAndKillTweens(targets: gsap.TweenTarget) {
     const tweens = gsap.getTweensOf(targets);

@@ -6,20 +6,31 @@ import gsap from 'gsap';
  * and fade/stop the music if a new one is requested. Also provide volume
  * control for music background only, leaving other sounds volumes unchanged.
  */
+/**
+ * 处理背景音乐，一次只循环播放一个音频文件，
+ * 如果请求新的音乐，则淡出/停止当前音乐。还提供
+ * 仅针对背景音乐的音量控制，保持其他声音音量不变。
+ */
 class BGM {
     /** Alias of the current music being played */
+    /** 当前播放音乐的别名 */
     public currentAlias?: string;
     /** Current music instance being played */
+    /** 当前播放的音乐实例 */
     public current?: Sound;
     /** Current volume set */
+    /** 当前设置的音量 */
     private volume = 1;
 
     /** Play a background music, fading out and stopping the previous, if there is one */
+    /** 播放背景音乐，如果有之前的音乐，则淡出并停止 */
     public async play(alias: string, options?: PlayOptions) {
         // Do nothing if the requested music is already being played
+        // 如果请求的音乐已经在播放，则不执行任何操作
         if (this.currentAlias === alias) return;
 
         // Fade out then stop current music
+        // 淡出然后停止当前音乐
         if (this.current) {
             const current = this.current;
             gsap.killTweensOf(current);
@@ -29,9 +40,11 @@ class BGM {
         }
 
         // Find out the new instance to be played
+        // 找出要播放的新实例
         this.current = sound.find(alias);
 
         // Play and fade in the new music
+        // 播放并淡入新音乐
         this.currentAlias = alias;
         this.current.play({ loop: true, ...options });
         this.current.volume = 0;
@@ -40,11 +53,13 @@ class BGM {
     }
 
     /** Get background music volume */
+    /** 获取背景音乐音量 */
     public getVolume() {
         return this.volume;
     }
 
     /** Set background music volume */
+    /** 设置背景音乐音量 */
     public setVolume(v: number) {
         this.volume = v;
         if (this.current) this.current.volume = this.volume;

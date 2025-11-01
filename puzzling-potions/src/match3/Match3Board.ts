@@ -18,16 +18,26 @@ import {
  * As a convention for this game, 'grid' is usually referring to the match3 state (array of types),
  * and 'board' is its visual representation with sprites.
  */
+/**
+ * 保存网格状态并控制其视觉表示，相应地创建和移除方块。
+ * 作为这个游戏的约定，'grid' 通常指的是三消状态（类型数组），
+ * 而 'board' 是带有精灵的视觉表示。
+ */
 export class Match3Board {
     /** The Match3 instance */
+    /** 三消游戏实例 */
     public match3: Match3;
     /** The grid state, with only numbers */
+    /** 网格状态，只包含数字 */
     public grid: Match3Grid = [];
     /** All piece sprites currently being used in the grid */
+    /** 当前在网格中使用的所有方块精灵 */
     public pieces: Match3Piece[] = [];
     /** Mask all pieces inside board dimensions */
+    /** 遮罩板内所有方块 */
     public piecesMask: Graphics;
     /** A container for the pieces sprites */
+    /** 方块精灵的容器 */
     public piecesContainer: Container;
     /** Number of rows in the boaard */
     public rows = 0;

@@ -12,26 +12,37 @@ import { ModeSwitcher } from '../ui/ModeSwitcher';
 import { GameScreen } from '../screens/GameScreen';
 
 /** Popup for volume and game mode settings - game mode cannot be changed during gameplay */
+/** 音量和游戏模式设置的弹窗 - 游戏模式在游戏过程中无法更改 */
 export class SettingsPopup extends Container {
     /** The dark semi-transparent background covering current screen */
+    /** 覆盖当前界面的深色半透明背景 */
     private bg: Sprite;
     /** Container for the popup UI components */
+    /** 弹窗 UI 组件的容器 */
     private panel: Container;
     /** The popup title label */
+    /** 弹窗标题标签 */
     private title: Label;
     /** Button that closes the popup */
+    /** 关闭弹窗的按钮 */
     private doneButton: LargeButton;
     /** The panel background */
+    /** 面板背景 */
     private panelBase: RoundedBox;
     /** The game build version label */
+    /** 游戏构建版本标签 */
     private versionLabel: Label;
     /** Layout that organises the UI components */
+    /** 组织 UI 组件的布局 */
     private layout: List;
     /** Slider that changes the master volume */
+    /** 更改主音量的滑块 */
     private masterSlider: VolumeSlider;
     /** Slider that changes background music volume */
+    /** 更改背景音乐音量的滑块 */
     private bgmSlider: VolumeSlider;
     /** Slider that changes sound effects volume */
+    /** 更改音效音量的滑块 */
     private sfxSlider: VolumeSlider;
     /** Radio buttons to change the game mode (disabled during gameplay) */
     private mode: ModeSwitcher;

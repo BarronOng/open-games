@@ -17,14 +17,26 @@ import {
  * The process round steps are sequenced in a queue of async functions to keep things simple,
  * in a way each step can be awaited/delayed as needed acording to what makes sense to the game flow.
  */
+/**
+ * 在玩家操作后处理游戏板上的游戏进度，清除匹配
+ * 然后填充空白空间。该过程组织在"处理轮次"中，将
+ * 继续进行，直到网格中没有新的匹配也没有空白空间。
+ *
+ * 处理轮次步骤在异步函数队列中排序以保持简单，
+ * 这样每个步骤都可以根据需要等待/延迟，根据游戏流程的意义。
+ */
 export class Match3Process {
     /** The Match3 instance */
+    /** 三消游戏实例 */
     private match3: Match3;
     /** Tells if it is currently processing or not */
+    /** 告诉是否正在处理 */
     private processing = false;
     /** The subsequent process round, resets when process starts */
+    /** 后续处理轮次，处理开始时重置 */
     private round = 0;
     /** The list of queued actions that the grid processing will take */
+    /** 网格处理将采取的排队操作列表 */
     private queue: AsyncQueue;
 
     constructor(match3: Match3) {

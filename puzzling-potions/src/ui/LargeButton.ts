@@ -15,8 +15,12 @@ type LargeButtonOptions = typeof defaultLargeButtonOptions;
 /**
  * The big rectangle button, with a label, idle and pressed states
  */
+/**
+ * 大的矩形按钮，带有标签、空闲和按下状态
+ */
 export class LargeButton extends FancyButton {
     /** The buttoon message displayed */
+    /** 显示的按钮消息 */
     private messageLabel: Label;
 
     constructor(options: Partial<LargeButtonOptions> = {}) {

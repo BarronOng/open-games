@@ -6,27 +6,36 @@ import { Match3SpecialRow } from './specials/Match3SpecialRow';
 import { match3GetMatches, Match3Position, Match3Type } from './Match3Utility';
 
 /** Interface for special handler */
+/** 特殊处理程序接口 */
 export interface Match3SpecialHandler {
     /** Match3 instance */
+    /** 三消游戏实例 */
     match3: Match3;
     /** The piece type attributed to this special */
+    /** 归属于此特殊的方块类型 */
     pieceType: Match3Type;
     /** Find out match patters and spawn special pieces  */
+    /** 找出匹配模式并生成特殊方块 */
     process(matches: Match3Position[][]): Promise<void>;
     /** Trigger the special effect in position  */
+    /** 在位置触发特殊效果 */
     trigger(pieceType: Match3Type, position: Match3Position): Promise<void>;
 }
 
 /** Special handler constructor interface */
+/** 特殊处理程序构造器接口 */
 export interface Match3SpecialHandlerConstructor {
     new (match3: Match3, pieceType: Match3Type): Match3SpecialHandler;
 }
 
 /** All available specials - handlers can be found inside `match3/specials/` folder */
+/** 所有可用的特殊道具 - 处理程序可以在 `match3/specials/` 文件夹中找到 */
 const availableSpecials: Record<string, Match3SpecialHandlerConstructor> = {
     /** Pops out the entire row */
+    /** 消除整行 */
     'special-row': Match3SpecialRow,
     /** Pops out the entire column */
+    /** 消除整列 */
     'special-column': Match3SpecialColumn,
     /** Pops out all pieces of a single type */
     'special-colour': Match3SpecialColour,

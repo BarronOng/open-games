@@ -1,6 +1,7 @@
 import { Match3, Match3OnMatchData, Match3OnPopData } from './Match3';
 
 /** Default gameplay stats data */
+/** 默认游戏统计数据 */
 const defaultStatsData = {
     score: 0,
     matches: 0,
@@ -10,15 +11,21 @@ const defaultStatsData = {
 };
 
 /** gameplay stats data */
+/** 游戏统计数据 */
 export type Match3StatsData = typeof defaultStatsData;
 
 /**
  * Computes scores and general gameplay stats during the session.
  */
+/**
+ * 在会话期间计算分数和一般游戏统计数据。
+ */
 export class Match3Stats {
     /** The Match3 instance */
+    /** 三消游戏实例 */
     private match3: Match3;
     /** Current internal stats data */
+    /** 当前内部统计数据 */
     private data: Match3StatsData;
 
     constructor(match3: Match3) {

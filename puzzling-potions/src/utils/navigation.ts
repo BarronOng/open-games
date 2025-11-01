@@ -4,50 +4,68 @@ import { app } from '../main';
 import { pool } from './pool';
 
 /** Interface for app screens */
+/** 应用界面接口 */
 interface AppScreen extends Container {
     /** Show the screen */
+    /** 显示界面 */
     show?(): Promise<void>;
     /** Hide the screen */
+    /** 隐藏界面 */
     hide?(): Promise<void>;
     /** Pause the screen */
+    /** 暂停界面 */
     pause?(): Promise<void>;
     /** Resume the screen */
+    /** 恢复界面 */
     resume?(): Promise<void>;
     /** Prepare screen, before showing */
+    /** 准备界面，在显示之前 */
     prepare?(): void;
     /** Reset screen, after hidden */
+    /** 重置界面，在隐藏之后 */
     reset?(): void;
     /** Update the screen, passing delta time/step */
+    /** 更新界面，传递增量时间/步长 */
     update?(time: Ticker): void;
     /** Resize the screen */
+    /** 调整界面大小 */
     resize?(width: number, height: number): void;
     /** Blur the screen */
+    /** 模糊界面 */
     blur?(): void;
     /** Focus the screen */
+    /** 聚焦界面 */
     focus?(): void;
 }
 
 /** Interface for app screens constructors */
+/** 应用界面构造器接口 */
 interface AppScreenConstructor {
     new (): AppScreen;
     /** List of assets bundles required by the screen */
+    /** 界面所需的资源包列表 */
     assetBundles?: string[];
 }
 
 class Navigation {
     /** Container for screens */
+    /** 界面容器 */
     public container = new Container();
 
     /** Application width */
+    /** 应用宽度 */
     public width = 0;
 
     /** Application height */
+    /** 应用高度 */
     public height = 0;
 
     /** Constant background view for all screens */
+    /** 所有界面的恒定背景视图 */
     public background?: AppScreen;
 
     /** Current screen being displayed */
+    /** 当前显示的界面 */
     public currentScreen?: AppScreen;
 
     /** Current popup being displayed */

@@ -1,13 +1,17 @@
 /** Piece type on each position in the grid */
+/** 网格中每个位置的方块类型 */
 export type Match3Type = number;
 
 /** Two-dimensional array represeinting the game board */
+/** 表示游戏板的二维数组 */
 export type Match3Grid = Match3Type[][];
 
 /** Pair of row & column representing grid coordinates */
+/** 表示网格坐标的行和列对 */
 export type Match3Position = { row: number; column: number };
 
 /** Orientation for match checks */
+/** 匹配检查的方向 */
 export type Match3Orientation = 'horizontal' | 'vertical';
 
 /**
@@ -21,6 +25,18 @@ export type Match3Orientation = 'horizontal' | 'vertical';
  * @param columns Number of columns
  * @param types List of types avaliable to fill up slots
  * @returns A 2D array filled up with types
+ */
+/**
+ * 创建一个用给定类型填充的 2D 网格矩阵
+ * 示例：
+ * [[1, 1, 2, 3]
+ *  [3, 1, 1, 3]
+ *  [1, 2, 3, 2]
+ *  [2, 3, 1, 3]]
+ * @param rows 行数
+ * @param columns 列数
+ * @param types 可用于填充槽的类型列表
+ * @returns 用类型填充的 2D 数组
  */
 export function match3CreateGrid(rows = 6, columns = 6, types: Match3Type[]) {
     const grid: Match3Grid = [];

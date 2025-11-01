@@ -4,8 +4,12 @@ import gsap from 'gsap';
 /**
  * The game logo, presented in the Home screen
  */
+/**
+ * 游戏标志，在主界面中展示
+ */
 export class Logo extends Container {
     /** The logo image */
+    /** 标志图像 */
     private image: Sprite;
 
     constructor() {

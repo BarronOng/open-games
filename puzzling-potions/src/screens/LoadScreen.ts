@@ -7,16 +7,22 @@ import { SmokeCloud } from '../ui/SmokeCloud';
 import { app } from '../main';
 
 /** Screen shown while loading assets */
+/** 加载资源时显示的界面 */
 export class LoadScreen extends Container {
     /** Assets bundles required by this screen */
+    /** 此界面所需的资源包 */
     public static assetBundles = ['preload'];
     /** ANimated cauldron */
+    /** 动画坩埚 */
     private cauldron: Cauldron;
     /** The PixiJS logo */
+    /** PixiJS 标志 */
     private pixiLogo: PixiLogo;
     /** The cloud animation at the top */
+    /** 顶部的云朵动画 */
     private cloud: SmokeCloud;
     /** LThe loading message display */
+    /** 加载消息显示 */
     private message: Text;
 
     constructor() {

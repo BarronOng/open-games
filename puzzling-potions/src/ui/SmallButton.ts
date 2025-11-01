@@ -17,10 +17,15 @@ type SmallButtonOptions = typeof defaultSmallButtonOptions;
 /**
  * A rectangular small button, with label idle and pressed states
  */
+/**
+ * 一个矩形小按钮，带有标签空闲和按下状态
+ */
 export class SmallButton extends FancyButton {
     /** The message displayed */
+    /** 显示的消息 */
     public messageLabel: Label;
     /** Inner container for animation */
+    /** 用于动画的内部容器 */
     private container: Container;
 
     constructor(options: Partial<SmallButtonOptions> = {}) {

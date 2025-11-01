@@ -5,10 +5,15 @@ import { Spine } from '@pixi/spine-pixi';
 /**
  * Spine-animated little dragon, that shows up in Home and Result screens.
  */
+/**
+ * Spine 动画的小龙，出现在主界面和结果界面中。
+ */
 export class Dragon extends Container {
     /** The spine animation */
+    /** Spine 动画 */
     private spine: Spine;
     /** Inner container for internal animations */
+    /** 内部动画的内部容器 */
     private container: Container;
 
     constructor() {

@@ -3,6 +3,7 @@ import { Match3StatsData } from '../match3/Match3Stats';
 import { storage } from './storage';
 
 // Keys for saved items in storage
+// 存储中保存项目的键
 const KEY_PREFIX_STATS = 'stats-';
 const KEY_PREFIX_BEST_SCORE = 'stats-best-score-';
 
@@ -11,11 +12,21 @@ const KEY_PREFIX_BEST_SCORE = 'stats-best-score-';
  * game mode will have its own score and best score saved, also a bunch of other
  * properties that could be useful like number of matches, popped pieces, etc.
  */
+/**
+ * 按游戏模式组织持久用户游戏统计数据，意味着每个
+ * 游戏模式都将保存自己的分数和最佳分数，以及其他一些
+ * 可能有用的属性，如匹配次数、消除方块数等。
+ */
 export class UserStats {
     /**
      * Load last saved gameplay stats for a game mode
      * @param mode A valid game mode
      * @returns Gameplay stats of given mode
+     */
+    /**
+     * 加载游戏模式的最后保存的游戏统计数据
+     * @param mode 有效的游戏模式
+     * @returns 给定模式的游戏统计数据
      */
     public load(mode: Match3Mode): Match3StatsData {
         const obj = storage.getObject(KEY_PREFIX_STATS + mode);

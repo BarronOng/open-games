@@ -9,6 +9,7 @@ import {
 } from './Match3Utility';
 
 /** Interface for actions configuration */
+/** 操作配置接口 */
 interface Match3ActionsConfig {
     freeMoves: boolean;
 }
@@ -17,11 +18,17 @@ interface Match3ActionsConfig {
  * These are the actions player can take: move pieces (swap) or tap if they are special.
  * Action effects happens instantly, and the game will deal with whatever state the grid ends up with.
  */
+/**
+ * 这些是玩家可以执行的操作：移动方块（交换）或点击特殊方块。
+ * 操作效果会立即发生，游戏将处理网格最终的任何状态。
+ */
 export class Match3Actions {
     /** The match3 instance */
+    /** 三消游戏实例 */
     public match3: Match3;
 
     /** Free all moves, meaning that they will always be valid regardles of matching results */
+    /** 自由移动，意味着无论匹配结果如何，移动总是有效的 */
     public freeMoves = false;
 
     constructor(match3: Match3) {

@@ -3,6 +3,7 @@ import { bgm, setMasterVolume, sfx } from './audio';
 import { storage } from './storage';
 
 // Keys for saved items in storage
+// 存储中保存项目的键
 const KEY_VOLUME_MASTER = 'volume-master';
 const KEY_VOLUME_BGM = 'volume-bgm';
 const KEY_VOLUME_SFX = 'volume-sfx';
@@ -10,6 +11,9 @@ const KEY_GAME_MODE = 'game-mode';
 
 /**
  * Persistent user settings of volumes and game mode.
+ */
+/**
+ * 音量和游戏模式的持久用户设置。
  */
 class UserSettings {
     constructor() {
@@ -19,12 +23,14 @@ class UserSettings {
     }
 
     /** Get current game mode */
+    /** 获取当前游戏模式 */
     public getGameMode() {
         const mode = storage.getString(KEY_GAME_MODE) as Match3Mode;
         return match3ValidModes.includes(mode) ? mode : 'normal';
     }
 
     /** Set current game mode */
+    /** 设置当前游戏模式 */
     public setGameMode(mode: Match3Mode) {
         if (!match3ValidModes.includes(mode)) {
             throw new Error('Invalid game mode: ' + mode);
